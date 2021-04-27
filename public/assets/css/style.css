@@ -1,0 +1,482 @@
+.bg_transcountry {
+    padding-left: 10%;
+    padding-right: 10%;
+    /*background:url('../img/transcountry-01.svg') no-repeat bottom center;*/
+    background: #f2f2f2;
+}
+
+.croppie-container {
+    width: 100%;
+    height: 100%;
+}
+
+.croppie-container .cr-image {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    max-height: none;
+    max-width: none;
+}
+
+.croppie-container .cr-boundary {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.croppie-container .cr-viewport,
+.croppie-container .cr-resizer {
+    position: absolute;
+    border: 2px solid #fff;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.croppie-container .cr-resizer {
+    z-index: 2;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.croppie-container .cr-resizer-vertical,
+.croppie-container .cr-resizer-horisontal {
+    position: absolute;
+    pointer-events: all;
+}
+
+.croppie-container .cr-resizer-vertical::after,
+.croppie-container .cr-resizer-horisontal::after {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    content: "";
+}
+
+.croppie-container .cr-resizer-vertical {
+    bottom: -5px;
+    cursor: row-resize;
+    width: 100%;
+    height: 10px;
+}
+
+.croppie-container .cr-resizer-vertical::after {
+    left: 50%;
+    margin-left: -5px;
+}
+
+.croppie-container .cr-resizer-horisontal {
+    right: -5px;
+    cursor: col-resize;
+    width: 10px;
+    height: 100%;
+}
+
+.croppie-container .cr-resizer-horisontal::after {
+    top: 50%;
+    margin-top: -5px;
+}
+
+.croppie-container .cr-original-image {
+    display: none;
+}
+
+.croppie-container .cr-vp-circle {
+    border-radius: 50%;
+}
+
+.croppie-container .cr-overlay {
+    z-index: 1;
+    position: absolute;
+    cursor: move;
+    touch-action: none;
+}
+
+.croppie-container .cr-slider-wrap {
+    width: 75%;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.croppie-result {
+    position: relative;
+    overflow: hidden;
+}
+
+.croppie-result img {
+    position: absolute;
+}
+
+.croppie-container .cr-image,
+.croppie-container .cr-overlay,
+.croppie-container .cr-viewport {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+
+/*************************************/
+
+
+/***** STYLING RANGE INPUT ***********/
+
+
+/*************************************/
+
+
+/*http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
+
+
+/*************************************/
+
+.cr-slider {
+    -webkit-appearance: none;
+    /*removes default webkit styles*/
+    /*border: 1px solid white; */
+    /*fix for FF unable to apply focus style bug */
+    width: 300px;
+    /*required for proper track sizing in FF*/
+    max-width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: transparent;
+}
+
+.cr-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 0;
+    border-radius: 3px;
+}
+
+.cr-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-top: -6px;
+}
+
+.cr-slider:focus {
+    outline: none;
+}
+
+
+/*
+.cr-slider:focus::-webkit-slider-runnable-track {
+background: #ccc;
+}
+*/
+
+.cr-slider::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 0;
+    border-radius: 3px;
+}
+
+.cr-slider::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-top: -6px;
+}
+
+
+/*hide the outline behind the border*/
+
+.cr-slider:-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+.cr-slider::-ms-track {
+    width: 100%;
+    height: 5px;
+    background: transparent;
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    border-color: transparent;
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-width: 6px 0;
+    color: transparent;
+    /*remove default tick marks*/
+}
+
+.cr-slider::-ms-fill-lower {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.cr-slider::-ms-fill-upper {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.cr-slider::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ddd;
+    margin-top: 1px;
+}
+
+.cr-slider:focus::-ms-fill-lower {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cr-slider:focus::-ms-fill-upper {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+/*******************************************/
+
+
+/***********************************/
+
+
+/* Rotation Tools */
+
+
+/***********************************/
+
+.cr-rotate-controls {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    z-index: 1;
+}
+
+.cr-rotate-controls button {
+    border: 0;
+    background: none;
+}
+
+.cr-rotate-controls i:before {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.cr-rotate-l i:before {
+    content: "↺";
+}
+
+.cr-rotate-r i:before {
+    content: "↻";
+}
+
+.table {
+    display: flex-inline;
+    position: relative;
+    width: 100% !important;
+}
+
+#map-content {
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+#map {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 0px) and (max-width: 866px) {
+    .table {
+        display: flex-inline;
+        position: relative;
+    }
+    .table td {
+        font-size: 10px;
+    }
+    .table th {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 867px) and (max-width: 1730px) {
+    .table {
+        display: table;
+        width: 100%;
+    }
+}
+
+.modal {
+    overflow: auto !important;
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+
+ul.timeline>li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+ul.timeline>li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #22c0e8;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating>label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating>label:hover,
+.rating>label:hover~label,
+.rating>input.radio-btn:checked~label {
+    color: transparent;
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before,
+.rating>input.radio-btn:checked~label:before,
+.rating>input.radio-btn:checked~label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+
+/*
+*
+* ==========================================
+* CIRCLE progress-c
+* ==========================================
+*
+*/
+
+.progress-c {
+    width: 150px;
+    height: 150px;
+    background: none;
+    position: relative;
+}
+
+.progress-c::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-c>span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.progress-c .progress-c-left {
+    left: 0;
+}
+
+.progress-c .progress-c-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 6px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+}
+
+.progress-c .progress-c-left .progress-c-bar {
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+}
+
+.progress-c .progress-c-right {
+    right: 0;
+}
+
+.progress-c .progress-c-right .progress-c-bar {
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+}
+
+.progress-c .progress-c-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
